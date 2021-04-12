@@ -1,0 +1,19 @@
+with new as
+(select product.maker, product.type, price from pc
+join product 
+on
+product.model=pc.model
+where type = 'PC'
+and maker = 'A'
+
+union all
+select product.maker, product.type, price from laptop
+join product 
+on
+product.model=laptop.model
+where type = 'Laptop'
+and maker = 'A'
+)
+
+select avg(price) from new
+

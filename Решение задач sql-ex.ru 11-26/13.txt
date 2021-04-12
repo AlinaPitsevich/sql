@@ -1,0 +1,8 @@
+Select avg(speed) from PC 
+inner join
+product 
+on
+product.model=PC.model
+and
+product.maker = 'A'
+

@@ -1,0 +1,7 @@
+Select product.maker, max(price)
+from PC inner join product
+on
+product.model=pc.model
+group by product.maker
+having count(pc.model)>=1
+

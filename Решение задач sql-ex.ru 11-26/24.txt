@@ -1,0 +1,9 @@
+with new as 
+(Select model, price from pc
+union all
+Select model, price from laptop
+union all
+Select model, price from printer)
+select model from new
+where price=(select max(price) from new)
+

@@ -1,0 +1,6 @@
+Select ships.class, ships.name, Classes.country
+FROM
+Ships inner join Classes
+on classes.class = ships.class
+where numGuns >= 10
+
