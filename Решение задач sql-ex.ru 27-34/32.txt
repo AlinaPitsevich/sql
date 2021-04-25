@@ -1,0 +1,38 @@
+﻿
+Задание: 32
+
+Одной из характеристик корабля является половина куба калибра его главных орудий (mw). 
+С точностью до 2 десятичных знаков определите среднее значение mw для кораблей каждой страны,
+ у которой есть корабли в базе данных.
+
+
+
+
+
+
+
+
+
+WITH T as 
+(
+SELECT country, name as n, bore
+
+FROM Classes as c JOIN Ships as s
+
+ON c.class=s.class
+
+UNION 
+SELECT country, o.ship as n, bore
+
+FROM Classes as c JOIN 
+Outcomes as o
+
+ON c.class=o.ship
+)
+
+
+SELECT country, CAST(avg(bore*bore*bore/2) as NUMERIC(6,2))
+
+FROM T
+GROUP BY Country
+

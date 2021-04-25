@@ -1,0 +1,17 @@
+﻿Задание: 28 
+
+Используя таблицу Product, определить количество производителей, 
+выпускающих по одной модели. 
+
+
+
+
+
+select  Count(maker) from product
+
+where maker in
+
+(select maker from product group by maker
+
+having count(model) = 1)
+

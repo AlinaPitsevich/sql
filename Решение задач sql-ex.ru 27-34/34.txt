@@ -1,0 +1,18 @@
+«адание: 34 (Serge I: 2002-11-04)
+ѕо ¬ашингтонскому международному договору от начала 1922 г. 
+запрещалось строить линейные корабли водоизмещением более 35 тыс.тонн. ”кажите корабли, нарушившие этот договор (учитывать только корабли c известным годом спуска на воду). 
+¬ывести названи€ кораблей.
+
+with T as 
+
+(select displacement, ships.name, launched 
+
+from classes 
+inner join ships
+
+on classes.class=ships.class)
+
+select name from T
+
+where launched > 1922 and displacement > 35
+
